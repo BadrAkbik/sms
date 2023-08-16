@@ -14,6 +14,13 @@ class OutcomeResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        return parent::toArray($request);
+        return [
+            'Id' => $this->id,
+            'Fist Semester' => $this->first_sem,
+            'Second Semester' => $this->second_sem,
+            'Total' => $this->total,
+            'Student' => $this->student->name,
+            'Subject' => $this->subject->name
+        ];
     }
 }

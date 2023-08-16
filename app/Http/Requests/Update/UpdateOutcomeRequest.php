@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Update;
 
+use App\Models\Subject;
 use Illuminate\Foundation\Http\FormRequest;
 
 class UpdateOutcomeRequest extends FormRequest
@@ -11,7 +12,7 @@ class UpdateOutcomeRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +23,16 @@ class UpdateOutcomeRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'student_id' => ['exists:students,id'],
+            'subject_id' => ['exists:subjects,id'], 
+            'first_sem' => ['numeric', 'max:'.$this->getMaxMark()],
+            'second_sem' => ['numeric', 'max:'.$this->getMaxMark()],
+            'total' => ['numeric'],
         ];
+    }
+
+    public function getMaxMark(){
+        $subject = Subject::findOrFail(request()->subject_id);
+        return $subject->max_mark;
     }
 }
