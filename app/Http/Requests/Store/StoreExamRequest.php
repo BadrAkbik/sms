@@ -11,7 +11,7 @@ class StoreExamRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,9 @@ class StoreExamRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'date' => ['required', 'date'],
+            'semester' => ['required', 'string', 'max:20'],
+            'type' => ['required', 'string', 'max:30']
         ];
     }
 }
