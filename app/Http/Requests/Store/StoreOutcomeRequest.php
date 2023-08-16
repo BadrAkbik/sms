@@ -24,16 +24,11 @@ class StoreOutcomeRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'student_id' => ['required', 'exists:students,id'],
-            'subject_id' => ['required', 'exists:subjects,id'], 
-            'first_sem' => ['required', 'numeric', 'max:'.$this->getMaxMark()],
-            'second_sem' => ['required', 'numeric', 'max:'.$this->getMaxMark()],
+            'student_id' => ['required', 'integer', 'exists:students,id'],
+            'subject_id' => ['required', 'integer', 'exists:subjects,id'], 
+            'first_sem' => ['required', 'numeric'],
+            'second_sem' => ['required', 'numeric'],
             'total' => ['required', 'numeric'],
         ];
-    }
-
-    public function getMaxMark(){
-        $subject = Subject::findOrFail(request()->subject_id);
-        return $subject->max_mark;
     }
 }

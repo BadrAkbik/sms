@@ -26,8 +26,8 @@ class StoreStudentRequest extends FormRequest
     {
         return array_merge(
             $this->teacherStudentStoreRules(),
-            array('grade_id' => ['required', 'numeric',Rule::exists('grades', 'id')],
-                'section_id' => ['numeric', 'exists:section,id']
+            array('grade_id' => ['required', 'integer',Rule::exists('grades', 'id')],
+                'section_id' => ['integer', 'exists:section,id']
             )
         );
     }
