@@ -14,6 +14,11 @@ class GradeResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        return parent::toArray($request);
+        return [
+            'Id' => $this->id,
+            'Name' => $this->name,
+            'Created at' => $this->created_at->format('d/m/Y H:i'),
+            'Updated at' => $this->updated_at->format('d/m/Y H:i')
+        ];
     }
 }
