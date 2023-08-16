@@ -14,6 +14,15 @@ class ResultResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        return parent::toArray($request);
+        return [
+            'Id' => $this->id,
+            'Student name' => $this->student->name,
+            'Exam type' => $this->exam->type,
+            'Exam semester' => $this->exam->semester,
+            'Grade name' => $this->grade->name,
+            'Subject name' => $this->subject->name,
+            'Mark' => $this->mark,
+            'Status' => $this->status
+        ];
     }
 }

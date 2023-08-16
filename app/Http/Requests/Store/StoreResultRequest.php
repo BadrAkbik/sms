@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Store;
 
+use App\Models\Subject;
 use Illuminate\Foundation\Http\FormRequest;
 
 class StoreResultRequest extends FormRequest
@@ -11,7 +12,7 @@ class StoreResultRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +23,17 @@ class StoreResultRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'student_id' => ['required', 'integer', 'exists:students,id'],
+            'exam_id' => ['required', 'integer', 'exists:exams,id'],
+            'grade_id' => ['required', 'integer', 'exists:grades,id'],
+            'subject_id' => ['required', 'integer', 'exists:subjects,id'],
+            'mark' => ['required', 'numeric', 'max:'.$this->getMaxMark()],
+            'status' => ['required', 'boolean']
         ];
+    }
+
+    public function getMaxMark(){
+        $subject = Subject::findOrFail(request()->subject_id);
+        return $subject->max_mark;
     }
 }
