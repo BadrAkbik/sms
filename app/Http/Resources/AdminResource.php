@@ -17,8 +17,8 @@ class AdminResource extends JsonResource
         return [
             'name' => $this->name,
             'email' => $this->email,
-            'created at' => $this->created_at->format('d/m/Y H:i'),
-            'updated at' => $this->updated_at->format('d/m/Y H:i')
+            'Created at' => $this->created_at->format('d/m/Y H:i'),
+            'Updated at' => $this->updated_at->format('d/m/Y H:i')
         ];
     }
 }
