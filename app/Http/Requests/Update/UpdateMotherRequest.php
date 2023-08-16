@@ -11,7 +11,7 @@ class UpdateMotherRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,10 @@ class UpdateMotherRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => ['string', 'max:30'],
+            'phone_num' => ['numeric', 'max:15'],
+            'work' => ['string', 'max:30'],
+            'date_of_birth' => ['date']
         ];
     }
 }
