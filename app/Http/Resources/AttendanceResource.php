@@ -19,7 +19,9 @@ class AttendanceResource extends JsonResource
             'Date' => $this->date,
             'Status' => $this->status,
             'Student id' => $this->student_id,
-            'Student name' => $this->student->name
+            'Student name' => $this->student->name,
+            'Created at' => $this->created_at->format('d/m/Y H:i'),
+            'Updated at' => $this->updated_at->format('d/m/Y H:i')
         ];
     }
 }
