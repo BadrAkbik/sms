@@ -11,7 +11,7 @@ class UpdateExamRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,9 @@ class UpdateExamRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'date' => ['date'],
+            'semester' => ['string', 'max:20'],
+            'type' => ['string', 'max:30']
         ];
     }
 }
