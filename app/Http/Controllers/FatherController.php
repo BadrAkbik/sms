@@ -21,22 +21,22 @@ class FatherController extends Controller
     }
 
 
-    public function show(Father $attendance)
+    public function show(Father $father)
     {
-        return new FatherResource($attendance);
+        return new FatherResource($father);
     }
 
 
-    public function update(UpdateFatherRequest $request, Father $attendance)
+    public function update(UpdateFatherRequest $request, Father $father)
     {
-        $attendance->update($request->safe()->all());
-        return new FatherResource($attendance);
+        $father->update($request->safe()->all());
+        return new FatherResource($father);
     }
 
 
-    public function destroy(Father $attendance)
+    public function destroy(Father $father)
     {
-        $attendance->delete();
+        $father->delete();
 
         return response()->json([
             'data' => 'This Exam has been deleted successfuly'

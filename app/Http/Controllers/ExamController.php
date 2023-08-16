@@ -21,22 +21,22 @@ class ExamController extends Controller
     }
 
 
-    public function show(Exam $attendance)
+    public function show(Exam $exam)
     {
-        return new ExamResource($attendance);
+        return new ExamResource($exam);
     }
 
 
-    public function update(UpdateExamRequest $request, Exam $attendance)
+    public function update(UpdateExamRequest $request, Exam $exam)
     {
-        $attendance->update($request->safe()->all());
-        return new ExamResource($attendance);
+        $exam->update($request->safe()->all());
+        return new ExamResource($exam);
     }
 
 
-    public function destroy(Exam $attendance)
+    public function destroy(Exam $exam)
     {
-        $attendance->delete();
+        $exam->delete();
 
         return response()->json([
             'data' => 'This Exam has been deleted successfuly'

@@ -21,22 +21,22 @@ class MotherController extends Controller
     }
 
 
-    public function show(Mother $attendance)
+    public function show(Mother $mother)
     {
-        return new MotherResource($attendance);
+        return new MotherResource($mother);
     }
 
 
-    public function update(UpdateMotherRequest $request, Mother $attendance)
+    public function update(UpdateMotherRequest $request, Mother $mother)
     {
-        $attendance->update($request->safe()->all());
-        return new MotherResource($attendance);
+        $mother->update($request->safe()->all());
+        return new MotherResource($mother);
     }
 
 
-    public function destroy(Mother $attendance)
+    public function destroy(Mother $mother)
     {
-        $attendance->delete();
+        $mother->delete();
 
         return response()->json([
             'data' => 'This Mother has been deleted successfuly'

@@ -22,22 +22,22 @@ class GradeController extends Controller
     }
 
 
-    public function show(Grade $attendance)
+    public function show(Grade $grade)
     {
-        return new GradeResource($attendance);
+        return new GradeResource($grade);
     }
 
 
-    public function update(UpdateGradeRequest $request, Grade $attendance)
+    public function update(UpdateGradeRequest $request, Grade $grade)
     {
-        $attendance->update($request->safe()->all());
-        return new GradeResource($attendance);
+        $grade->update($request->safe()->all());
+        return new GradeResource($grade);
     }
 
 
-    public function destroy(Grade $attendance)
+    public function destroy(Grade $grade)
     {
-        $attendance->delete();
+        $grade->delete();
 
         return response()->json([
             'data' => 'This Exam has been deleted successfuly'
