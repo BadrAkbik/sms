@@ -15,9 +15,9 @@ class EnsureUserIsApproved
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if ($request->user()->getTable() === 'admins'){
+/*         if ($request->user()->getTable() === 'admins'){
             return $next($request);
-        }
+        } */
 
         if(! $request->user()->is_approved){
             return response()->json(['message' => 'Your account has not been approved yet.'], 409);

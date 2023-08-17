@@ -22,7 +22,7 @@ use App\Http\Controllers\Teacher\TeacherController;
 require __DIR__.'/auth.php';
 
 
-Route::apiResource('admin', AdminController::class)->except('store')->middleware(['auth:sanctum', 'can:admin']);
+Route::apiResource('admin', AdminController::class)->middleware(['auth:sanctum', 'can:admin']);
 
 Route::apiResource('teacher', TeacherController::class);
 
