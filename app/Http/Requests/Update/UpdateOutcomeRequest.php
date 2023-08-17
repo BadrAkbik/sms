@@ -25,14 +25,9 @@ class UpdateOutcomeRequest extends FormRequest
         return [
             'student_id' => ['exists:students,id'],
             'subject_id' => ['exists:subjects,id'], 
-            'first_sem' => ['numeric', 'max:'.$this->getMaxMark()],
-            'second_sem' => ['numeric', 'max:'.$this->getMaxMark()],
+            'first_sem' => ['numeric'],
+            'second_sem' => ['numeric'],
             'total' => ['numeric'],
         ];
-    }
-
-    public function getMaxMark(){
-        $subject = Subject::findOrFail(request()->subject_id);
-        return $subject->max_mark;
     }
 }
