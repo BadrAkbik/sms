@@ -24,7 +24,8 @@ class UpdateExamRequest extends FormRequest
         return [
             'date' => ['date'],
             'semester' => ['string', 'max:20'],
-            'type' => ['string', 'max:30']
+            'type' => ['string', 'max:30'],
+            'subject_id' => ['exists:subjects,id', 'integer']
         ];
     }
 }

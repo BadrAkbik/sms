@@ -24,7 +24,8 @@ class StoreExamRequest extends FormRequest
         return [
             'date' => ['required', 'date'],
             'semester' => ['required', 'string', 'max:20'],
-            'type' => ['required', 'string', 'max:30']
+            'type' => ['required', 'string', 'max:30'],
+            'subject_id' => ['required', 'exists:subjects,id', 'integer']
         ];
     }
 }
