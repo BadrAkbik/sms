@@ -23,7 +23,7 @@ class UpdateFatherRequest extends FormRequest
     {
         return [
             'name' => ['string', 'max:30'],
-            'phone_num' => ['numeric', 'max:15'],
+            'phone_num' => ['numeric', 'max:20'],
             'work' => ['string', 'max:30'],
             'date_of_birth' => ['date']
         ];
