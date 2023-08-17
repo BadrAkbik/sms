@@ -23,7 +23,7 @@ class StoreFatherRequest extends FormRequest
     {
         return [
             'name' => ['required', 'string', 'max:30'],
-            'phone_num' => ['numeric', 'max:20'],
+            'phone_num' => ['string', 'max:15'],
             'work' => ['string', 'max:30'],
             'date_of_birth' => ['required', 'date']
         ];
