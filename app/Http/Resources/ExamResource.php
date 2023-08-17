@@ -19,7 +19,7 @@ class ExamResource extends JsonResource
             'Date' => $this->date,
             'Semester' => $this->semester,
             'Type' => $this->type,
-            'Subject name' => $this->subject->name,
+            'Subject' => $this->subject->name,
             'Created at' => $this->created_at->format('d/m/Y H:i'),
             'Updated at' => $this->updated_at->format('d/m/Y H:i')
         ];
