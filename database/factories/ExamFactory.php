@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\ExamType;
+use App\Models\Subject;
 use Database\Factories\Helpers\FactoryHelper;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -22,6 +23,7 @@ class ExamFactory extends Factory
             'date' => fake()->dateTimeThisYear(),
             'semester' => fake()->randomElement(['fisrt', 'second']),
             'type' => fake()->name(),
+            'subject_id' => FactoryHelper::getRandomModelId(Subject::class)
         ];
     }
 }

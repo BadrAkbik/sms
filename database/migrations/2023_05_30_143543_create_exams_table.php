@@ -16,6 +16,7 @@ return new class extends Migration
             $table->date('date');
             $table->string('semester', 30);
             $table->string('type', 30);
+            $table->foreignId('subject_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }
