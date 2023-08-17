@@ -11,7 +11,7 @@ class ExamController extends Controller
 {
     public function index()
     {
-        return ExamResource::collection(Exam::all());
+        return ExamResource::collection(Exam::with('subject')->get());
     }
 
 
