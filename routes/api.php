@@ -3,6 +3,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AccountmentController;
+use App\Http\Controllers\Admin\PendingAdminController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\ExamController;
@@ -51,4 +52,6 @@ Route::apiResource('subject', SubjectController::class);
 Route::apiresource('pending/student', PendingStudentController::class)->only(['index', 'show', 'update']);
 
 Route::apiresource('pending/teacher', PendingTeacherController::class)->only(['index', 'show', 'update']);
+
+Route::apiresource('pending/admin', PendingAdminController::class)->only(['index', 'show', 'update']);
 
