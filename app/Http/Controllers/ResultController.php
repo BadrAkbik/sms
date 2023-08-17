@@ -12,7 +12,7 @@ class ResultController extends Controller
 {
     public function index()
     {
-        return ResultResource::collection(Result::all());
+        return ResultResource::collection(Result::with('grade')->with('exam')->with('subject')->with('student')->get());
     }
 
 

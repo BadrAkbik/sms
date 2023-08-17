@@ -33,7 +33,10 @@ class UpdateResultRequest extends FormRequest
     }
 
     public function getMaxMark(){
-        $subject = Subject::findOrFail(request()->subject_id);
-        return $subject->max_mark;
+        if(request()->subject_id){
+            $subject = Subject::findOrFail(request()->subject_id);
+            return $subject->max_mark;
+        }
+        return $this->result->subject->max_mark;
     }
 }
