@@ -40,7 +40,7 @@ class OutcomeController extends Controller
         $outcome->delete();
 
         return response()->json([
-            'data' => 'This Mother has been deleted successfuly'
+            'data' => 'This outcome has been deleted successfuly'
         ]);
     }
 }

@@ -40,7 +40,7 @@ class GradeController extends Controller
         $grade->delete();
 
         return response()->json([
-            'data' => 'This Exam has been deleted successfuly'
+            'data' => 'This grade has been deleted successfuly'
         ]);
     }
 }

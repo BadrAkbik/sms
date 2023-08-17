@@ -39,7 +39,7 @@ class FatherController extends Controller
         $father->delete();
 
         return response()->json([
-            'data' => 'This Exam has been deleted successfuly'
+            'data' => 'This father has been deleted successfuly'
         ]);
     }
 }
