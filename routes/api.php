@@ -3,8 +3,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AccountmentController;
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\PendingAdminController;
-use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\ExamController;
 use App\Http\Controllers\FatherController;
@@ -25,9 +25,9 @@ require __DIR__.'/auth.php';
 
 Route::apiResource('admin', AdminController::class)->middleware(['auth:sanctum', 'can:admin']);
 
-Route::apiResource('teacher', TeacherController::class);
+Route::apiResource('teacher', TeacherController::class)->except('store');
 
-Route::apiResource('student', StudentController::class);
+Route::apiResource('student', StudentController::class)->except('store');
 
 Route::apiResource('accountment', AccountmentController::class);
 

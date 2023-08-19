@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\BaseControllers\UserController;
 use App\Http\Requests\Store\StoreAdminRequest;
 use App\Http\Requests\Update\UpdateAdminRequest;
 use App\Http\Resources\AdminResource;
