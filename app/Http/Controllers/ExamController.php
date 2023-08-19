@@ -9,37 +9,21 @@ use App\Models\Exam;
 
 class ExamController extends Controller
 {
+    protected $model = Exam::class;
+    protected $resource = ExamResource::class;
+    
+    public function store(StoreExamRequest $request)
+    {
+        return parent::storeItem($request);
+    }
+    
+    public function update(UpdateExamRequest $request, Exam $exam)
+    {
+        return parent::updateItem($request, $exam);
+    }
+
     public function index()
     {
         return ExamResource::collection(Exam::with('subject')->get());
-    }
-
-
-    public function store(StoreExamRequest $request)
-    {
-        return new ExamResource(Exam::create($request->safe()->all()));
-    }
-
-
-    public function show(Exam $exam)
-    {
-        return new ExamResource($exam);
-    }
-
-
-    public function update(UpdateExamRequest $request, Exam $exam)
-    {
-        $exam->update($request->safe()->all());
-        return new ExamResource($exam);
-    }
-
-
-    public function destroy(Exam $exam)
-    {
-        $exam->delete();
-
-        return response()->json([
-            'data' => 'This Exam has been deleted successfuly'
-        ]);
     }
 }

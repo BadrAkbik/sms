@@ -19,9 +19,9 @@ class TeacherController extends UserController
         return parent::storeUser($request);
     }
     
-    public function update($id, UpdateTeacherRequest $request)
+    public function update(Teacher $teacher, UpdateTeacherRequest $request)
     {
-        return parent::updateUser($id, $request);
+        return parent::updateUser($teacher, $request);
     }
     
 }

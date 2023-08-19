@@ -9,37 +9,23 @@ use App\Models\Father;
 
 class FatherController extends Controller
 {
+    protected $model = Father::class;
+    protected $resource = FatherResource::class;
+    
+    
+    public function store(StoreFatherRequest $request)
+    {
+        return parent::storeItem($request);
+    }
+    
+    public function update(UpdateFatherRequest $request, Father $father)
+    {
+        return parent::updateItem($request, $father);
+    }
+
     public function index()
     {
         return FatherResource::collection(Father::all());
     }
 
-
-    public function store(StoreFatherRequest $request)
-    {
-        return new FatherResource(Father::create($request->safe()->all()));
-    }
-
-
-    public function show(Father $father)
-    {
-        return new FatherResource($father);
-    }
-
-
-    public function update(UpdateFatherRequest $request, Father $father)
-    {
-        $father->update($request->safe()->all());
-        return new FatherResource($father);
-    }
-
-
-    public function destroy(Father $father)
-    {
-        $father->delete();
-
-        return response()->json([
-            'data' => 'This father has been deleted successfuly'
-        ]);
-    }
 }

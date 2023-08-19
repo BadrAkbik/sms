@@ -6,41 +6,25 @@ use App\Http\Requests\Store\StoreSectionRequest;
 use App\Http\Requests\Update\UpdateSectionRequest;
 use App\Http\Resources\SectionResource;
 use App\Models\Section;
-use Illuminate\Http\Request;
 
 class SectionController extends Controller
 {
+    protected $model = Section::class;
+    protected $resource = SectionResource::class;
+    
+    
+    public function store(StoreSectionRequest $request)
+    {
+        return parent::storeItem($request);
+    }
+    
+    public function update(UpdateSectionRequest $request, Section $section)
+    {
+        return parent::updateItem($request, $section);
+    }
+    
     public function index()
     {
         return SectionResource::collection(Section::all());
-    }
-
-
-    public function store(StoreSectionRequest $request)
-    {
-        return new SectionResource(Section::create($request->safe()->all()));
-    }
-
-
-    public function show(Section $section)
-    {
-        return new SectionResource($section);
-    }
-
-
-    public function update(UpdateSectionRequest $request, Section $section)
-    {
-        $section->update($request->safe()->all());
-        return new SectionResource($section);
-    }
-
-
-    public function destroy(Section $section)
-    {
-        $section->delete();
-
-        return response()->json([
-            'data' => 'This Section has been deleted successfuly'
-        ]);
     }
 }

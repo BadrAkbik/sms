@@ -40,10 +40,8 @@ class UserController extends Controller
     }
 
    
-    public function updateUser($id, $request)
+    public function updateUser($item, $request)
     {
-        $item = $this->model::findOrFail($id);
-
         return DB::transaction(function () use ($item, $request) {
 
             $item->update($request->safe()->all());
@@ -63,7 +61,7 @@ class UserController extends Controller
         $item->delete();
 
         return response()->json([
-            'data' => 'This student has been deleted successfuly'
+            'data' => 'This Item has been deleted successfuly'
         ]);
     }
 }
