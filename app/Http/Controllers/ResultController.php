@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\BaseControllers\GeneralController;
 use App\Http\Requests\Store\StoreResultRequest;
 use App\Http\Requests\Update\UpdateResultRequest;
 use App\Http\Resources\ResultResource;
 use App\Models\Result;
 
-class ResultController extends Controller
+class ResultController extends GeneralController
 {
     protected $model = Result::class;
     protected $resource = ResultResource::class;

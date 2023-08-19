@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\BaseControllers;
 
+use App\Http\Controllers\Controller;
 use App\Traits\EmailUpdate;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\DB;

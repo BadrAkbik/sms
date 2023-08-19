@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\BaseControllers\GeneralController;
 use App\Models\Accountment;
 use App\Http\Requests\Store\StoreAccountmentRequest;
 use App\Http\Requests\Update\UpdateAccountmentRequest;

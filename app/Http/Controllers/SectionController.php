@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\BaseControllers\GeneralController;
 use App\Http\Requests\Store\StoreSectionRequest;
 use App\Http\Requests\Update\UpdateSectionRequest;
 use App\Http\Resources\SectionResource;
 use App\Models\Section;
 
-class SectionController extends Controller
+class SectionController extends GeneralController
 {
     protected $model = Section::class;
     protected $resource = SectionResource::class;

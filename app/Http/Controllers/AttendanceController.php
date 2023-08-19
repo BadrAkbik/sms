@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\BaseControllers\GeneralController;
 use App\Http\Requests\Store\StoreAttendanceRequest;
 use App\Http\Requests\Update\UpdateAttendanceRequest;
 use App\Http\Resources\AttendanceResource;

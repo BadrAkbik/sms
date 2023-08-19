@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\BaseControllers\GeneralController;
 use App\Http\Requests\Store\StoreSubjectRequest;
 use App\Http\Requests\Update\UpdateSubjectRequest;
 use App\Http\Resources\SubjectResource;
 use App\Models\Subject;
 
-class SubjectController extends Controller
+class SubjectController extends GeneralController
 {
     protected $model = Subject::class;
     protected $resource = SubjectResource::class;

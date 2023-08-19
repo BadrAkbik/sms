@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\BaseControllers\GeneralController;
 use App\Http\Requests\Store\StoreGradeRequest;
 use App\Http\Requests\Update\UpdateGradeRequest;
 use App\Http\Resources\GradeResource;
 use App\Models\Grade;
 
-class GradeController extends Controller
+class GradeController extends GeneralController
 {
     protected $model = Grade::class;
     protected $resource = GradeResource::class;

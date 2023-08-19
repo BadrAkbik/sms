@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Student;
 
-use App\Http\Controllers\PendingUserController;
+use App\Http\Controllers\BaseControllers\PendingUserController;
 use App\Http\Resources\StudentResource;
 use App\Models\Student;
 

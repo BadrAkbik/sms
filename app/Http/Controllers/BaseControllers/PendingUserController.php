@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\BaseControllers;
 
-use App\Models\Student;
+use App\Http\Controllers\Controller;
 
 abstract class PendingUserController extends Controller
 {

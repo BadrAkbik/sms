@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Teacher;
 
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\BaseControllers\UserController;
 use App\Models\Teacher;
 use App\Http\Requests\Store\StoreTeacherRequest;
 use App\Http\Requests\Update\UpdateTeacherRequest;
