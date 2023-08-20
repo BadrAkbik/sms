@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Student;
 
+use App\Classes\StudentFilters;
 use App\Http\Controllers\BaseControllers\UserController;
 use App\Models\Student;
 use App\Http\Requests\Store\StoreStudentRequest;
@@ -14,9 +15,9 @@ class StudentController extends UserController
     protected $model = Student::class;
     protected $resource = StudentResource::class;
 
-    public function index()
+    public function index(StudentFilters $filters)
     {
-        return StudentResource::collection(Student::with('grade')->with('section')->get());
+        return StudentResource::collection(Student::with('grade:id,name')->with('section:name')->filter($filters)->get());
     }
 
     public function store(StoreStudentRequest $request)

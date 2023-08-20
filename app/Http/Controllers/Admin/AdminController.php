@@ -13,6 +13,11 @@ class AdminController extends UserController
     protected $model = Admin::class;
     protected $resource = AdminResource::class;
 
+    public function index()
+    {  
+        return AdminResource::collection(Admin::all());
+    }
+
     public function store(StoreAdminRequest $request)
     {
         return parent::storeUser($request);

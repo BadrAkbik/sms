@@ -14,6 +14,11 @@ class TeacherController extends UserController
     protected $model = Teacher::class;
     protected $resource = TeacherResource::class;
 
+    public function index()
+    {  
+        return TeacherResource::collection(Teacher::all());
+    }
+
     public function store(StoreTeacherRequest $request)
     {
         return parent::storeUser($request);

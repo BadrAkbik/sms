@@ -16,11 +16,6 @@ class UserController extends Controller
 
     use EmailUpdate;
 
-    
-    public function index()
-    {  
-        return $this->resource::collection($this->model::all());
-    }
 
     public function show($id)
     {
