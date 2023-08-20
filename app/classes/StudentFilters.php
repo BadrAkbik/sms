@@ -2,8 +2,6 @@
 
 namespace App\Classes;
 
-use Illuminate\Support\Facades\DB;
-
 class StudentFilters extends QueryFilter
 {
     public function search($search)
