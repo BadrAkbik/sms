@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\BaseControllers\GeneralController;
 use App\Http\Requests\Store\StoreGradeRequest;
 use App\Http\Requests\Update\UpdateGradeRequest;
+use App\Http\Resources\Collections\GradeCollcetion;
 use App\Http\Resources\GradeResource;
 use App\Models\Grade;
 
@@ -26,7 +27,7 @@ class GradeController extends GeneralController
 
     public function index()
     {
-        return GradeResource::collection(Grade::all());
+        return new GradeCollcetion(Grade::all());
     }
 
 }

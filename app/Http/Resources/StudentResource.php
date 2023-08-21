@@ -23,10 +23,18 @@ class StudentResource extends JsonResource
             'Address' => $this->address,
             'Phone number' => $this->phone_num,
             'Date of join' => $this->date_of_join,
-            'Grade' => $this->grade->name,
-            'Section' => $this->section->name ?? null,
+            'Grade id' => $this->grade->id,
+            'Grade name' => $this->grade->name,
+            'Section id' => $this->section->id ?? null,
+            'Section name' => $this->section->name ?? null,
             'Created at' => $this->created_at->format('d/m/Y H:i'),
-            'Updated at' => $this->updated_at->format('d/m/Y H:i')
+            'Updated at' => $this->updated_at->format('d/m/Y H:i'),
+            'Accountment' => $this->accountment,
+            'Attendances' => $this->attendances,
+            'Results' => $this->results,
+            'Mother' => $this->mothers,
+            'Father' => $this->fathers,
+            'Outcomes' => $this->outcomes
         ];
     }
 }

@@ -21,7 +21,8 @@ class ExamResource extends JsonResource
             'Type' => $this->type,
             'Subject' => $this->subject->name,
             'Created at' => $this->created_at->format('d/m/Y H:i'),
-            'Updated at' => $this->updated_at->format('d/m/Y H:i')
+            'Updated at' => $this->updated_at->format('d/m/Y H:i'),
+            'Results' => $this->results
         ];
     }
 }

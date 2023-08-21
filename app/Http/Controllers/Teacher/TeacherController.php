@@ -6,6 +6,7 @@ use App\Http\Controllers\BaseControllers\UserController;
 use App\Models\Teacher;
 use App\Http\Requests\Store\StoreTeacherRequest;
 use App\Http\Requests\Update\UpdateTeacherRequest;
+use App\Http\Resources\Collections\TeacherCollection;
 use App\Http\Resources\TeacherResource;
 
 class TeacherController extends UserController
@@ -16,7 +17,7 @@ class TeacherController extends UserController
 
     public function index()
     {  
-        return TeacherResource::collection(Teacher::all());
+        return new TeacherCollection(Teacher::all());
     }
 
     public function store(StoreTeacherRequest $request)

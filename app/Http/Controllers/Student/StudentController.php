@@ -7,6 +7,7 @@ use App\Http\Controllers\BaseControllers\UserController;
 use App\Models\Student;
 use App\Http\Requests\Store\StoreStudentRequest;
 use App\Http\Requests\Update\UpdateStudentRequest;
+use App\Http\Resources\Collections\StudentCollection;
 use App\Http\Resources\StudentResource;
 
 
@@ -17,7 +18,7 @@ class StudentController extends UserController
 
     public function index(StudentFilters $filters)
     {
-        return StudentResource::collection(Student::with('grade:id,name')->with('section:name')->filter($filters)->get());
+        return new StudentCollection(Student::with('grade:id,name')->with('section:id,name')->filter($filters)->get());
     }
 
     public function store(StoreStudentRequest $request)

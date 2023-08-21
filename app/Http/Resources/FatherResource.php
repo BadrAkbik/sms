@@ -21,7 +21,8 @@ class FatherResource extends JsonResource
             'Job' => $this->work,
             'Date of birth' => $this->date_of_birth,
             'Created at' => $this->created_at->format('d/m/Y H:i'),
-            'Updated at' => $this->updated_at->format('d/m/Y H:i')
+            'Updated at' => $this->updated_at->format('d/m/Y H:i'),
+            'Children' => $this->students
         ];
     }
 }

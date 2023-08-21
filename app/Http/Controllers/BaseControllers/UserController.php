@@ -13,9 +13,7 @@ class UserController extends Controller
     protected $model;
     protected $resource;
 
-
     use EmailUpdate;
-
 
     public function show($id)
     {
@@ -35,7 +33,6 @@ class UserController extends Controller
         });
     }
 
-   
     public function updateUser($item, $request)
     {
         return DB::transaction(function () use ($item, $request) {
@@ -49,7 +46,6 @@ class UserController extends Controller
         });
     }
 
-   
     public function destroy($id)
     {
         $item = $this->model::findOrFail($id);

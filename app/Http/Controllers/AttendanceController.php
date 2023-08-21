@@ -6,6 +6,7 @@ use App\Http\Controllers\BaseControllers\GeneralController;
 use App\Http\Requests\Store\StoreAttendanceRequest;
 use App\Http\Requests\Update\UpdateAttendanceRequest;
 use App\Http\Resources\AttendanceResource;
+use App\Http\Resources\Collections\AttendanceCollection;
 use App\Models\Attendance;
 
 class AttendanceController extends GeneralController
@@ -25,6 +26,6 @@ class AttendanceController extends GeneralController
 
     public function index()
     {
-        return AttendanceResource::collection(Attendance::with('student')->get());
+        return new AttendanceCollection(Attendance::with('student')->get());
     }
 }

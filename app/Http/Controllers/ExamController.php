@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\BaseControllers\GeneralController;
 use App\Http\Requests\Store\StoreExamRequest;
 use App\Http\Requests\Update\UpdateExamRequest;
+use App\Http\Resources\Collections\ExamCollcetion;
 use App\Http\Resources\ExamResource;
 use App\Models\Exam;
 
@@ -25,6 +26,6 @@ class ExamController extends GeneralController
 
     public function index()
     {
-        return ExamResource::collection(Exam::with('subject')->get());
+        return new ExamCollcetion(Exam::with('subject')->get());
     }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\BaseControllers\GeneralController;
 use App\Http\Requests\Store\StoreFatherRequest;
 use App\Http\Requests\Update\UpdateFatherRequest;
+use App\Http\Resources\Collections\FatherCollcetion;
 use App\Http\Resources\FatherResource;
 use App\Models\Father;
 
@@ -26,7 +27,7 @@ class FatherController extends GeneralController
 
     public function index()
     {
-        return FatherResource::collection(Father::all());
+        return new FatherCollcetion(Father::all());
     }
 
 }

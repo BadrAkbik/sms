@@ -22,7 +22,7 @@ class AccountmentResource extends JsonResource
             'Created at' => $this->created_at->format('d/m/Y H:i'),
             'Updated at' => $this->updated_at->format('d/m/Y H:i'),
             'Student id' => $this->student_id,
-            'Student name' => $this->student->name
+            'Student name' => $this->student->name,
         ];
     }
 }

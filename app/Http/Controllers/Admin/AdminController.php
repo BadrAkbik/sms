@@ -6,6 +6,7 @@ use App\Http\Controllers\BaseControllers\UserController;
 use App\Http\Requests\Store\StoreAdminRequest;
 use App\Http\Requests\Update\UpdateAdminRequest;
 use App\Http\Resources\AdminResource;
+use App\Http\Resources\Collections\AdminCollection;
 use App\Models\Admin;
 
 class AdminController extends UserController
@@ -15,7 +16,7 @@ class AdminController extends UserController
 
     public function index()
     {  
-        return AdminResource::collection(Admin::all());
+        return new AdminCollection(Admin::all());
     }
 
     public function store(StoreAdminRequest $request)

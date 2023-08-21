@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\BaseControllers\GeneralController;
 use App\Http\Requests\Store\StoreMotherRequest;
 use App\Http\Requests\Update\UpdateMotherRequest;
+use App\Http\Resources\Collections\MotherCollcetion;
 use App\Http\Resources\MotherResource;
 use App\Models\Mother;
 
@@ -26,7 +27,7 @@ class MotherController extends GeneralController
 
     public function index()
     {
-        return MotherResource::collection(Mother::all());
+        return new MotherCollcetion(Mother::all());
     }
 
 }

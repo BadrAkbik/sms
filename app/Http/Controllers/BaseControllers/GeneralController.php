@@ -15,13 +15,11 @@ class GeneralController extends Controller
         return new $this->resource($this->model::create($request->safe()->all()));
     }
 
-
     public function show($id)
     {
         $item = $this->model::findOrFail($id);
         return new $this->resource($item);
     }
-
 
     public function updateItem($request, $item)
     {

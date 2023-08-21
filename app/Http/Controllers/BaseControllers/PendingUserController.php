@@ -8,10 +8,11 @@ abstract class PendingUserController extends Controller
 {
     protected $model;
     protected $resource;
+    protected $collection;
 
     public function index()
     {
-        return $this->resource::collection($this->model::where('is_approved', 0)->get());
+        return new $this->collection($this->model::where('is_approved', 0)->get());
     }
 
     public function show($id)

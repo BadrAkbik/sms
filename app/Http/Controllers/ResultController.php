@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\BaseControllers\GeneralController;
 use App\Http\Requests\Store\StoreResultRequest;
 use App\Http\Requests\Update\UpdateResultRequest;
+use App\Http\Resources\Collections\ResultCollcetion;
 use App\Http\Resources\ResultResource;
 use App\Models\Result;
 
@@ -26,7 +27,7 @@ class ResultController extends GeneralController
 
     public function index()
     {
-        return ResultResource::collection(Result::with('grade')->with('exam')->with('subject')->with('student')->get());
+        return new ResultCollcetion(Result::with('grade')->with('exam')->with('subject')->with('student')->get());
     }
 
 }

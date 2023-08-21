@@ -7,6 +7,7 @@ use App\Models\Accountment;
 use App\Http\Requests\Store\StoreAccountmentRequest;
 use App\Http\Requests\Update\UpdateAccountmentRequest;
 use App\Http\Resources\AccountmentResource;
+use App\Http\Resources\Collections\AccountmentCollection;
 
 class AccountmentController extends GeneralController
 {
@@ -27,6 +28,6 @@ class AccountmentController extends GeneralController
     
     public function index()
     {
-        return AccountmentResource::collection(Accountment::with('student')->get());
+        return new AccountmentCollection(Accountment::with('student')->get());
     }
 }

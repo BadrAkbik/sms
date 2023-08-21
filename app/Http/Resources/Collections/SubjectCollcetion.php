@@ -3,17 +3,22 @@
 namespace App\Http\Resources\Collections;
 
 use Illuminate\Http\Request;
-use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Http\Resources\Json\ResourceCollection;
 
-class SubjectCollcetion extends JsonResource
+class SubjectCollcetion extends ResourceCollection
 {
-    /**
-     * Transform the resource into an array.
-     *
-     * @return array<string, mixed>
-     */
+
     public function toArray(Request $request): array
     {
-        return parent::toArray($request);
+        return [
+            'data' => $this->collection->transform(function ($subject) {
+                return [
+                    'Id' => $subject->id,
+                    'Name' => $subject->name,
+                    'Max mark' => $subject->max_mark,
+                    'Min mark' => $subject->min_mark
+                ];
+            }),
+        ];
     }
 }

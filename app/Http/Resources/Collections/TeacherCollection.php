@@ -7,13 +7,24 @@ use Illuminate\Http\Resources\Json\ResourceCollection;
 
 class TeacherCollection extends ResourceCollection
 {
-    /**
-     * Transform the resource collection into an array.
-     *
-     * @return array<int|string, mixed>
-     */
+
     public function toArray(Request $request): array
     {
-        return parent::toArray($request);
+        return [
+            'data' => $this->collection->transform(function ($teacher) {
+                return [
+                    'Id' => $teacher->id,
+                    'Name' => $teacher->name,
+                    'Email' => $teacher->email,
+                    'Date of birth' => $teacher->date_of_birth,
+                    'Gender' => $teacher->gender,
+                    'Address' => $teacher->address,
+                    'Phone number' => $teacher->phone_num,
+                    'Date of join' => $teacher->date_of_join,
+                    'Created at' => $teacher->created_at->format('d/m/Y H:i'),
+                    'Updated at' => $teacher->updated_at->format('d/m/Y H:i')
+                ];
+            }),
+        ];
     }
 }

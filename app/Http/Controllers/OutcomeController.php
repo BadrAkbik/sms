@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\BaseControllers\GeneralController;
 use App\Http\Requests\Store\StoreOutcomeRequest;
 use App\Http\Requests\Update\UpdateOutcomeRequest;
+use App\Http\Resources\Collections\OutcomeCollcetion;
 use App\Http\Resources\OutcomeResource;
 use App\Models\Outcome;
 
@@ -26,7 +27,7 @@ class OutcomeController extends GeneralController
 
     public function index()
     {
-        return OutcomeResource::collection(Outcome::with('student')->with('subject')->get());
+        return new OutcomeCollcetion(Outcome::with('student')->with('subject')->get());
     }
 
 }

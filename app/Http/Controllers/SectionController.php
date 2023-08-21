@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\BaseControllers\GeneralController;
 use App\Http\Requests\Store\StoreSectionRequest;
 use App\Http\Requests\Update\UpdateSectionRequest;
+use App\Http\Resources\Collections\SectionCollcetion;
 use App\Http\Resources\SectionResource;
 use App\Models\Section;
 
@@ -26,6 +27,6 @@ class SectionController extends GeneralController
     
     public function index()
     {
-        return SectionResource::collection(Section::all());
+        return new SectionCollcetion(Section::all());
     }
 }
