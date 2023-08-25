@@ -34,7 +34,8 @@ class StudentResource extends JsonResource
             'Results' => $this->results,
             'Mother' => $this->mothers,
             'Father' => $this->fathers,
-            'Outcomes' => $this->outcomes
+            'Outcomes' => $this->outcomes,
+            'teachers' => $this->section->teachers
         ];
     }
 }
