@@ -18,7 +18,12 @@ class SubjectResource extends JsonResource
             'Id' => $this->id,
             'Name' => $this->name,
             'Max mark' => $this->max_mark,
-            'Min mark' => $this->min_mark
+            'Min mark' => $this->min_mark,
+            'Teachers' => $this->teachers,
+            'Grade' => $this->grade,
+            'Exams' => $this->exams,
+            'Results' => $this->results,
+            'Outcomes' => $this->outcomes,
         ];
     }
 }

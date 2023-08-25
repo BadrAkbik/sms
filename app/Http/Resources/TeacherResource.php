@@ -24,7 +24,9 @@ class TeacherResource extends JsonResource
             'Phone number' => $this->phone_num,
             'Date of join' => $this->date_of_join,
             'Created at' => $this->created_at->format('d/m/Y H:i'),
-            'Updated at' => $this->updated_at->format('d/m/Y H:i')
+            'Updated at' => $this->updated_at->format('d/m/Y H:i'),
+            'Subjects' => $this->subjects,
+            'Sections' => $this->sections
         ];
     }
 }

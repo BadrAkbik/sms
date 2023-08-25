@@ -18,7 +18,11 @@ class GradeResource extends JsonResource
             'Id' => $this->id,
             'Name' => $this->name,
             'Created at' => $this->created_at->format('d/m/Y H:i'),
-            'Updated at' => $this->updated_at->format('d/m/Y H:i')
+            'Updated at' => $this->updated_at->format('d/m/Y H:i'),
+            'Students' => $this->students,
+            'Subjects' => $this->subjects,
+            'Sections' => $this->sections,
+            'Results' => $this->results,
         ];
     }
 }
