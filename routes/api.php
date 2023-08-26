@@ -11,6 +11,7 @@ use App\Http\Controllers\FatherController;
 use App\Http\Controllers\GradeController;
 use App\Http\Controllers\MotherController;
 use App\Http\Controllers\OutcomeController;
+use App\Http\Controllers\ParentStudentController;
 use App\Http\Controllers\Student\PendingStudentController;
 use App\Http\Controllers\Teacher\PendingTeacherController;
 use App\Http\Controllers\ResultController;
@@ -55,3 +56,4 @@ Route::apiresource('pending/teacher', PendingTeacherController::class)->only(['i
 
 Route::apiresource('pending/admin', PendingAdminController::class)->only(['index', 'show', 'update']);
 
+Route::apiresource('parent/attach', ParentStudentController::class)->only(['store', 'destroy']);

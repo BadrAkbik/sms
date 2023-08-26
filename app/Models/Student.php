@@ -46,14 +46,14 @@ class Student extends Authenticatable implements MustVerifyEmail
         return $this->hasMany(Accountment::class);
     }
 
-    public function mothers()
+    public function mother()
     {
-        return $this->belongsToMany(Mother::class, 'student_parent', 'student_id', 'mother_id')->withTimestamps();
+        return $this->morphedByMany(Mother::class, 'parent_student', 'parent_student')->withTimestamps();
     }
 
-    public function fathers()
+    public function father()
     {
-        return $this->belongsToMany(Father::class, 'student_parent', 'student_id', 'father_id')->withTimestamps();
+        return $this->morphedByMany(Father::class, 'parent_student', 'parent_student')->withTimestamps();
     }
 
     public function attendances()

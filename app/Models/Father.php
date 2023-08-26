@@ -13,6 +13,6 @@ class Father extends Model
 
     public function students()
     {
-        return $this->belongsToMany(Student::class, 'student_parent', 'father_id', 'student_id')->withTimestamps();
+        return $this->morphToMany(Student::class, 'parent_student', 'parent_student')->withTimestamps();
     }
 }

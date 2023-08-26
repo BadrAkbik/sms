@@ -32,8 +32,8 @@ class StudentResource extends JsonResource
             'Accountment' => $this->accountment,
             'Attendances' => $this->attendances,
             'Results' => $this->results,
-            'Mother' => $this->mothers,
-            'Father' => $this->fathers,
+            'Mother' => $this->mother,
+            'Father' => $this->father,
             'Outcomes' => $this->outcomes,
             'teachers' => $this->section->teachers
         ];

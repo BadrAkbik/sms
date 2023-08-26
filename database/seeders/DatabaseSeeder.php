@@ -55,7 +55,8 @@ class DatabaseSeeder extends Seeder
             function (Student $student) {
                 $mother = FactoryHelper::getRandomModelId(Mother::class);
                 $father = FactoryHelper::getRandomModelId(Father::class);
-                $student->mothers()->attach($mother, ['father_id' => $father]);
+                $student->mother()->sync($mother);
+                $student->father()->sync($father);
             } 
         );
 
