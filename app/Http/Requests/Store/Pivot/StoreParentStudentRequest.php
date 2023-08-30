@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Http\Requests\Store;
+namespace App\Http\Requests\Store\Pivot;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
 
 class StoreParentStudentRequest extends FormRequest
 {

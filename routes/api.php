@@ -11,7 +11,11 @@ use App\Http\Controllers\FatherController;
 use App\Http\Controllers\GradeController;
 use App\Http\Controllers\MotherController;
 use App\Http\Controllers\OutcomeController;
-use App\Http\Controllers\ParentStudentController;
+use App\Http\Controllers\PivotTableControllers\GradeSectionController;
+use App\Http\Controllers\PivotTableControllers\GradeSubjectController;
+use App\Http\Controllers\PivotTableControllers\ParentStudentController;
+use App\Http\Controllers\PivotTableControllers\SectionTeacherController;
+use App\Http\Controllers\PivotTableControllers\SubjectTeacherController;
 use App\Http\Controllers\Student\PendingStudentController;
 use App\Http\Controllers\Teacher\PendingTeacherController;
 use App\Http\Controllers\ResultController;
@@ -56,4 +60,20 @@ Route::apiresource('pending/teacher', PendingTeacherController::class)->only(['i
 
 Route::apiresource('pending/admin', PendingAdminController::class)->only(['index', 'show', 'update']);
 
-Route::apiresource('parent/attach', ParentStudentController::class)->only(['store', 'destroy']);
+Route::post('parent/attach', ParentStudentController::class);
+
+Route::post('teacher/subject/attach', [SubjectTeacherController::class, 'store']);
+
+Route::post('teacher/section/attach', [SectionTeacherController::class, 'store']);
+
+Route::post('grade/section/attach', [GradeSectionController::class, 'store']);
+
+Route::post('grade/subject/attach', [GradeSubjectController::class, 'store']);
+
+Route::delete('teacher/{teacherId}/subject/{subjectId}/detach', [SubjectTeacherController::class, 'destroy']);
+
+Route::delete('teacher/{teacherId}/section/{sectionId}/detach', [SectionTeacherController::class, 'destroy']);
+
+Route::delete('grade/{gradeId}/section/{sectionId}/detach', [GradeSectionController::class, 'destroy']);
+
+Route::delete('grade/{gradeId}/subject/{subjectId}/detach', [GradeSubjectController::class, 'destroy']);
