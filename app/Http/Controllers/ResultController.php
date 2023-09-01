@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Classes\ResultFilters;
 use App\Http\Controllers\BaseControllers\GeneralController;
 use App\Http\Requests\Store\StoreResultRequest;
 use App\Http\Requests\Update\UpdateResultRequest;
@@ -25,9 +26,9 @@ class ResultController extends GeneralController
         return parent::updateItem($request, $result);
     }
 
-    public function index()
+    public function index(ResultFilters $filters)
     {
-        return new ResultCollcetion(Result::with('grade')->with('exam')->with('subject')->with('student')->get());
+        return new ResultCollcetion(Result::with('grade')->with('exam')->with('subject')->with('student')->filter($filters)->get());
     }
 
 }

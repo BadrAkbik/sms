@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Classes\OutcomeFilters;
 use App\Http\Controllers\BaseControllers\GeneralController;
 use App\Http\Requests\Store\StoreOutcomeRequest;
 use App\Http\Requests\Update\UpdateOutcomeRequest;
@@ -25,9 +26,9 @@ class OutcomeController extends GeneralController
         return parent::updateItem($request, $outcome);
     }
 
-    public function index()
+    public function index(OutcomeFilters $filters)
     {
-        return new OutcomeCollcetion(Outcome::with('student')->with('subject')->get());
+        return new OutcomeCollcetion(Outcome::with('student')->with('subject')->filter($filters)->get());
     }
 
 }

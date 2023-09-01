@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Classes\SectionFilters;
 use App\Http\Controllers\BaseControllers\GeneralController;
 use App\Http\Requests\Store\StoreSectionRequest;
 use App\Http\Requests\Update\UpdateSectionRequest;
@@ -25,8 +26,8 @@ class SectionController extends GeneralController
         return parent::updateItem($request, $section);
     }
     
-    public function index()
+    public function index(SectionFilters $filters)
     {
-        return new SectionCollcetion(Section::all());
+        return new SectionCollcetion(Section::filter($filters)->get());
     }
 }

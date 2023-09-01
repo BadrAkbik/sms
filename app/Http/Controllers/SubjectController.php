@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Classes\SubjectsFilters;
 use App\Http\Controllers\BaseControllers\GeneralController;
 use App\Http\Requests\Store\StoreSubjectRequest;
 use App\Http\Requests\Update\UpdateSubjectRequest;
@@ -25,8 +26,8 @@ class SubjectController extends GeneralController
         return parent::updateItem($request, $subject);
     }
 
-    public function index()
+    public function index(SubjectsFilters $filters)
     {
-        return new SubjectCollcetion(Subject::all());
+        return new SubjectCollcetion(Subject::filter($filters)->get());
     }
 }

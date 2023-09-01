@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Classes\QueryFilter;
 use App\Notifications\VerifyEmail;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -25,6 +26,11 @@ class Teacher extends Authenticatable implements MustVerifyEmail
         'password' => 'hashed',
     ];
 
+    public function ScopeFilter($query, QueryFilter $filters)
+    {
+        return $filters->apply($query);
+    }
+
     public function getNameAttribute($name)
     {
         return ucwords($name);
@@ -44,6 +50,4 @@ class Teacher extends Authenticatable implements MustVerifyEmail
     {
         return $this->belongsToMany(Section::class)->withTimestamps();
     }
-
-
 }

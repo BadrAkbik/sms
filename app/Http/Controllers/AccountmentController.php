@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Classes\AccountmentFilters;
 use App\Http\Controllers\BaseControllers\GeneralController;
 use App\Models\Accountment;
 use App\Http\Requests\Store\StoreAccountmentRequest;
@@ -26,8 +27,8 @@ class AccountmentController extends GeneralController
         return parent::updateItem($request, $accountment);
     }
     
-    public function index()
+    public function index(AccountmentFilters $filters)
     {
-        return new AccountmentCollection(Accountment::with('student')->get());
+        return new AccountmentCollection(Accountment::with('student')->filter($filters)->get());
     }
 }

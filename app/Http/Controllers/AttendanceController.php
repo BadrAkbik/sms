@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Classes\AttendanceFilters;
 use App\Http\Controllers\BaseControllers\GeneralController;
 use App\Http\Requests\Store\StoreAttendanceRequest;
 use App\Http\Requests\Update\UpdateAttendanceRequest;
@@ -24,8 +25,8 @@ class AttendanceController extends GeneralController
         return parent::updateItem($request, $attendance);
     }
 
-    public function index()
+    public function index(AttendanceFilters $filters)
     {
-        return new AttendanceCollection(Attendance::with('student')->get());
+        return new AttendanceCollection(Attendance::with('student')->filter($filters)->get());
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Classes\QueryFilter;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -11,13 +12,18 @@ class Outcome extends Model
 
     protected $guarded = ['id', 'created_at', 'updated_at'];
 
-    public function student() 
+    public function ScopeFilter($query, QueryFilter $filters)
     {
-        return $this->belongsTo(Student::class);    
+        return $filters->apply($query);
     }
 
-    public function subject() 
+    public function student()
     {
-        return $this->belongsTo(Subject::class);    
+        return $this->belongsTo(Student::class);
+    }
+
+    public function subject()
+    {
+        return $this->belongsTo(Subject::class);
     }
 }
